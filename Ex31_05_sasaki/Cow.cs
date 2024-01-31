@@ -11,11 +11,18 @@ namespace Ex31_05_sasaki
         public Cow(string name, float hp, float power,bool poisonResistance= false) : base(name, hp, power,poisonResistance) { }
         public override void Attack(Character destination)
         {
+             if (this.hp >= 5)
+            {
                 Console.WriteLine($"{this.name}は{destination.name}を角でついた！");
-            Console.WriteLine($"{destination.name}に風穴をあけた！");
-            Console.WriteLine($"{destination.name}は{this.power}のダメージ");
+                Console.WriteLine($"{destination.name}に風穴をあけた！");
+                Console.WriteLine($"{destination.name}は{this.power}のダメージ");
                 destination.hp -= this.power;
                 Console.WriteLine($"{destination.name}の残りのHPは{destination.hp}");
+            }
+            else
+            {
+                Console.WriteLine($"{this.name}は攻撃する元気がなかった！");
+            }
         }
 
     }
